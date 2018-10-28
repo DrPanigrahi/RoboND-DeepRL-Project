@@ -1,3 +1,5 @@
+[//]: # (Image References)
+[image1]: ./docs/images/Error_Make_Udacity_Workspace.JPG
 
 # Deep RL Arm Manipulation
 
@@ -5,6 +7,25 @@ This project is based on the Nvidia open source project "jetson-reinforcement" d
 
 1. Have any part of the robot arm touch the object of interest, with at least a 90% accuracy.
 2. Have only the gripper base of the robot arm touch the object, with at least a 80% accuracy.
+
+On the Udacity Online Workspace, the following steps much be followed in order to build the package from source in order to avoid the error shown below due to the absence of the math library.
+
+![alt text][image1] 
+
+``` bash
+$ cd /home/workspace/RoboND-DeepRL-Project/build/
+$ sudo apt-get install libignition-math2-dev -y
+$ make
+$ cd x86_64/bin/
+$ ./gazebo-arm.sh
+```
+
+On an active Udacity Workspace, where the libignition-math2-dev has already been installed, everytime there is a modification to the gazebo/ArmPlugin.cpp, one must 'make' the project before executing. 
+``` bash
+$ make
+$ cd x86_64/bin/
+$ ./gazebo-arm.sh
+```
 
 ## Building from Source (Nvidia Jetson TX2)
 
@@ -113,7 +134,6 @@ To get started with the project environment, run the following:
 
 ``` bash
 $ cd RoboND-DeepRL-Project/build/aarch64/bin
-$ chmod u+x gazebo-arm.sh
 $ ./gazebo-arm.sh
 ```
 
